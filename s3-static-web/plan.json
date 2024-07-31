@@ -1,0 +1,1580 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_s3_bucket.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket" "static" {
+      [32m+[0m[0m acceleration_status         = (known after apply)
+      [32m+[0m[0m acl                         = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m bucket                      = "my-static-web-bucket-1234"
+      [32m+[0m[0m bucket_domain_name          = (known after apply)
+      [32m+[0m[0m bucket_prefix               = (known after apply)
+      [32m+[0m[0m bucket_regional_domain_name = (known after apply)
+      [32m+[0m[0m force_destroy               = true
+      [32m+[0m[0m hosted_zone_id              = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m object_lock_enabled         = (known after apply)
+      [32m+[0m[0m policy                      = (known after apply)
+      [32m+[0m[0m region                      = (known after apply)
+      [32m+[0m[0m request_payer               = (known after apply)
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Name" = "my-static-web-bucket"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Name" = "my-static-web-bucket"
+        }
+      [32m+[0m[0m website_domain              = (known after apply)
+      [32m+[0m[0m website_endpoint            = (known after apply)
+
+      [32m+[0m[0m cors_rule (known after apply)
+
+      [32m+[0m[0m grant (known after apply)
+
+      [32m+[0m[0m lifecycle_rule (known after apply)
+
+      [32m+[0m[0m logging (known after apply)
+
+      [32m+[0m[0m object_lock_configuration (known after apply)
+
+      [32m+[0m[0m replication_configuration (known after apply)
+
+      [32m+[0m[0m server_side_encryption_configuration (known after apply)
+
+      [32m+[0m[0m versioning (known after apply)
+
+      [32m+[0m[0m website (known after apply)
+    }
+
+[1m  # aws_s3_bucket_acl.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_acl" "static" {
+      [32m+[0m[0m acl    = "public-read"
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m access_control_policy (known after apply)
+    }
+
+[1m  # aws_s3_bucket_ownership_controls.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_ownership_controls" "static" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m rule {
+          [32m+[0m[0m object_ownership = "BucketOwnerPreferred"
+        }
+    }
+
+[1m  # aws_s3_bucket_policy.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_policy" "static" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m policy = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = [
+                          [32m+[0m[0m "s3:GetObject",
+                        ]
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = "*"
+                      [32m+[0m[0m Resource  = [
+                          [32m+[0m[0m "arn:aws:s3:::my-static-web-bucket-1234/*",
+                        ]
+                      [32m+[0m[0m Sid       = "PublicReadGetObject"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+    }
+
+[1m  # aws_s3_bucket_public_access_block.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_public_access_block" "static" {
+      [32m+[0m[0m block_public_acls       = false
+      [32m+[0m[0m block_public_policy     = false
+      [32m+[0m[0m bucket                  = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m ignore_public_acls      = false
+      [32m+[0m[0m restrict_public_buckets = false
+    }
+
+[1m  # aws_s3_bucket_website_configuration.static[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_website_configuration" "static" {
+      [32m+[0m[0m bucket           = "my-static-web-bucket-1234"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m routing_rules    = (known after apply)
+      [32m+[0m[0m website_domain   = (known after apply)
+      [32m+[0m[0m website_endpoint = (known after apply)
+
+      [32m+[0m[0m error_document {
+          [32m+[0m[0m key = "error.html"
+        }
+
+      [32m+[0m[0m index_document {
+          [32m+[0m[0m suffix = "index.html"
+        }
+
+      [32m+[0m[0m routing_rule (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/article-details.html"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/html"
+      [32m+[0m[0m etag                   = "35c7112df1a5625618a34612b895eccb"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/article-details.html"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/article-details.html"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/css/bootstrap.css"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/css"
+      [32m+[0m[0m etag                   = "bd551f56ce2be3eba2812e605ab4f5b2"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/css/bootstrap.css"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/css/bootstrap.css"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/css/fontawesome-all.css"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/css"
+      [32m+[0m[0m etag                   = "852ed9b9adcd394534c96102a0e05acf"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/css/fontawesome-all.css"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/css/fontawesome-all.css"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/css/magnific-popup.css"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/css"
+      [32m+[0m[0m etag                   = "30b593b71d7672658f89bfea0ab360c9"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/css/magnific-popup.css"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/css/magnific-popup.css"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/css/styles.css"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/css"
+      [32m+[0m[0m etag                   = "cd584f3271ea94a6f7eced72fec4ec34"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/css/styles.css"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/css/styles.css"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/css/swiper.css"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/css"
+      [32m+[0m[0m etag                   = "1d814746f69121716ac9fefb559d7026"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/css/swiper.css"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/css/swiper.css"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/article-details-large.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "745ce3f2fadb0d1108fd7a51804de5b4"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/article-details-large.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/article-details-large.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/article-details-small.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "fe3d9cf56bb00c449283e4a9b656f1ce"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/article-details-small.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/article-details-small.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/customer-logo-1.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "29213447edbdb91c8f02e37b3186b177"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/customer-logo-1.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/customer-logo-1.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/customer-logo-2.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "91bb2f4e9b087acce43c4e9d27914729"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/customer-logo-2.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/customer-logo-2.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/customer-logo-3.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "f9d01aa4a205cd1c4439914b6d679e1c"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/customer-logo-3.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/customer-logo-3.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/customer-logo-4.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "3f86a9dbc84aff54d880b0bf32509331"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/customer-logo-4.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/customer-logo-4.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/customer-logo-5.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "2e309565a9d23e6501161ce21710c7b6"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/customer-logo-5.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/customer-logo-5.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/decorative-blue-circle.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "ae3b2ba46b9f8a6f268cf29441861c5d"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/decorative-blue-circle.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/decorative-blue-circle.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/decorative-green-diamond.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "27f692e3003a1179433dedd0991e420b"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/decorative-green-diamond.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/decorative-green-diamond.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/decorative-white-circle.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "e74c0f19aed384274d618fe8f4443772"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/decorative-white-circle.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/decorative-white-circle.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/decorative-yellow-circle.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "c40bb071dcefb4ae1221c516a0316959"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/decorative-yellow-circle.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/decorative-yellow-circle.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/description-1-app.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "fe99e0bdc72e44344861ccfb6c08e40b"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/description-1-app.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/description-1-app.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/description-1-details-lightbox.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "a0279bdc80a04a82f39b3924154f2899"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/description-1-details-lightbox.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/description-1-details-lightbox.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/description-2-app.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "6ed7b1169e4e5bcd47aff486e7193879"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/description-2-app.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/description-2-app.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/down-arrow.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "2b2a23465c53005b22a196366379e4fd"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/down-arrow.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/down-arrow.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/download-iphone.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "e4b1b9b76cb7b5f1afd70bbf6f0beb4a"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/download-iphone.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/download-iphone.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/favicon.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "1bd511222ad00f8970d00afdcf215f9b"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/favicon.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/favicon.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/features-app.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "274df2fe85525d675abf6575ea49bcf0"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/features-app.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/features-app.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/header-iphone.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "54a6db44c6ae6067dd3d7b8fb6b537e7"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/header-iphone.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/header-iphone.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/logo.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "c408ea55d8f2ea803d670924c168ee6f"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/logo.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/logo.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-1.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "4d13278e0e5b4b395434f0a0f787fc42"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-1.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-1.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-10.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "52150f5686231ac7ad9a8870ae3f2e5f"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-10.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-10.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-2.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "20d6dd8c4d0e883cbc7792829ae49318"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-2.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-2.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-3.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "7677a88ec26f1be3778e15ecf99c0c1f"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-3.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-3.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-4.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "926270d7e12560c9b9bdc5cb81ca7ec7"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-4.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-4.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-5.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "9366733c2407c0e137b7e443d67ef9d9"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-5.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-5.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-6.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "e3cc478e83bc66285ba5796314ebf7ba"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-6.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-6.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-7.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "5922e302e49e48d84bf290d69981ab7c"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-7.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-7.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-8.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "539963131268428cd2f4e5f0af3297b7"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-8.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-8.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/screenshot-9.jpg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/jpeg"
+      [32m+[0m[0m etag                   = "16dc93239cab119904f2652d893e86c9"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/screenshot-9.jpg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/screenshot-9.jpg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/images/up-arrow.png"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/png"
+      [32m+[0m[0m etag                   = "573f8e6285c1dca013bc6cf8ebf196be"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/images/up-arrow.png"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/images/up-arrow.png"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/index.html"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/html"
+      [32m+[0m[0m etag                   = "fabf7d348b80eae1c393b7fae65a3744"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/index.html"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/index.html"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/bootstrap.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "e1d98d47689e00f8ecbc5d9f61bdb42e"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/bootstrap.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/bootstrap.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/jquery.easing.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "b62c744f5635480a0eabd225a04b7452"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/jquery.easing.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/jquery.easing.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/jquery.magnific-popup.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "7790b276800430f76800dcf5c23975f2"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/jquery.magnific-popup.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/jquery.magnific-popup.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/jquery.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "a09e13ee94d51c524b7e2a728c7d4039"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/jquery.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/jquery.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/popper.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "36affe2ca6cb85233ee7362c5d8b7893"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/popper.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/popper.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/scripts.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "c4666de8753197a114f7ffe2f661a10d"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/scripts.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/scripts.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/swiper.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "74571ff9ea0f905f582197d9e94ab140"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/swiper.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/swiper.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/js/validator.min.js"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/javascript"
+      [32m+[0m[0m etag                   = "06b115e7b21a5c38565a728c6208ffc3"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/js/validator.min.js"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/js/validator.min.js"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/privacy-policy.html"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/html"
+      [32m+[0m[0m etag                   = "1a5aff25d5285873adfd121569a20352"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/privacy-policy.html"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/privacy-policy.html"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/terms-conditions.html"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "text/html"
+      [32m+[0m[0m etag                   = "8427c57b634ff5f9ac7cf933301ca700"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/terms-conditions.html"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/terms-conditions.html"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-brands-400.eot"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/vnd.ms-fontobject"
+      [32m+[0m[0m etag                   = "3165b14bbf3b64fca65829ecde6b800d"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-brands-400.eot"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-brands-400.eot"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-brands-400.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "f249e44df3044e7b0d665b550569ddf0"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-brands-400.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-brands-400.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-brands-400.ttf"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/ttf"
+      [32m+[0m[0m etag                   = "f2e186cfab4787d4ef6f1bb192aa9a1b"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-brands-400.ttf"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-brands-400.ttf"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-brands-400.woff"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff"
+      [32m+[0m[0m etag                   = "457cb96b6191ed105c4fe8463957f70d"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-brands-400.woff"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-brands-400.woff"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-brands-400.woff2"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff2"
+      [32m+[0m[0m etag                   = "f861a57c52ef711cf807a3eec92c0e17"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-brands-400.woff2"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-brands-400.woff2"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-regular-400.eot"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/vnd.ms-fontobject"
+      [32m+[0m[0m etag                   = "a03df7ab0ffc96cabbfe3dc71c60baaa"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-regular-400.eot"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-regular-400.eot"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-regular-400.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "2fad4ee0a47f41bc76e21c2baf613182"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-regular-400.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-regular-400.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-regular-400.ttf"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/ttf"
+      [32m+[0m[0m etag                   = "2cd8d991e82712f1a5c5de8ee869ca74"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-regular-400.ttf"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-regular-400.ttf"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-regular-400.woff"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff"
+      [32m+[0m[0m etag                   = "7ab2cb050690f93994c46258d49af5b6"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-regular-400.woff"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-regular-400.woff"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-regular-400.woff2"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff2"
+      [32m+[0m[0m etag                   = "bd52a727b5449dc3f8195b72c9c58341"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-regular-400.woff2"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-regular-400.woff2"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-solid-900.eot"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "application/vnd.ms-fontobject"
+      [32m+[0m[0m etag                   = "a547e21eceadf53602caf057be9ad9fd"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-solid-900.eot"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-solid-900.eot"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-solid-900.svg"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "image/svg+xml"
+      [32m+[0m[0m etag                   = "fdc155d57b7351ef85b3028ea3cfc048"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-solid-900.svg"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-solid-900.svg"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-solid-900.ttf"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/ttf"
+      [32m+[0m[0m etag                   = "5ee32f5c8598e1a63ddf1aad4ffe54f4"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-solid-900.ttf"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-solid-900.ttf"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-solid-900.woff"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff"
+      [32m+[0m[0m etag                   = "657a469469a2fc38a2901c68a3d56512"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-solid-900.woff"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-solid-900.woff"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1m  # aws_s3_object.object["static-web/webfonts/fa-solid-900.woff2"][0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_object" "object" {
+      [32m+[0m[0m acl                    = (known after apply)
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m bucket                 = (known after apply)
+      [32m+[0m[0m bucket_key_enabled     = (known after apply)
+      [32m+[0m[0m checksum_crc32         = (known after apply)
+      [32m+[0m[0m checksum_crc32c        = (known after apply)
+      [32m+[0m[0m checksum_sha1          = (known after apply)
+      [32m+[0m[0m checksum_sha256        = (known after apply)
+      [32m+[0m[0m content_type           = "font/woff2"
+      [32m+[0m[0m etag                   = "2cd2be177470d5096992572176bbe76e"
+      [32m+[0m[0m force_destroy          = false
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key                    = "/webfonts/fa-solid-900.woff2"
+      [32m+[0m[0m kms_key_id             = (known after apply)
+      [32m+[0m[0m server_side_encryption = (known after apply)
+      [32m+[0m[0m source                 = "static-web/webfonts/fa-solid-900.woff2"
+      [32m+[0m[0m storage_class          = (known after apply)
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m version_id             = (known after apply)
+    }
+
+[1mPlan:[0m 69 to add, 0 to change, 0 to destroy.
+[0m[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Saved the plan to: plan.out
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "plan.out"
