@@ -1,4 +1,6 @@
 terraform {
+  required_version = "1.9.3"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -95,6 +97,6 @@ resource "aws_s3_object" "object" {
   bucket       = aws_s3_bucket.static.id
   key          = replace(each.value, "static-web", "")
   source       = each.value
-  etag         = filemd5("${each.value}")
+  etag         = filemd5(each.value)
   content_type = lookup(local.mime_types, split(".", each.value)[length(split(".", each.value)) - 1])
 }
